@@ -1,0 +1,90 @@
+html, body {
+  height: 100%;
+}
+
+/* Navbar Styling */
+/* .navbar {
+  align-items: flex-end;
+  box-shadow: 0 3px 7px 3px rgba(0, 0, 0, 0.1);
+  display: flex;
+  height: 50px;
+  justify-content: space-between;
+}
+
+.logo, .nav-link {
+  color: darkgray;
+  padding: 10px 20px;
+  text-decoration: none;
+}
+
+.toggle {
+  color: darkgray;
+  cursor: pointer;
+  display: none;
+  padding: 10px 20px;
+}
+
+.nav-menu {
+  display: none;
+  padding-bottom: 10px;
+}
+
+.active {
+  display: block;
+} */
+
+/* Landing Page Styling */
+.landing-image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto auto auto;
+}
+
+.landing-button {
+  display: block;
+  margin: 0 auto auto 10%;
+  position: relative;;
+}
+
+/* General Styling */
+.container {
+  margin: 20px;
+  padding: 10px;
+}
+
+.grid-container {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 300px));
+  justify-content: center;
+}
+
+
+/* Card Styling */
+.card-container {
+  border-radius: 15px;
+  box-shadow: 1px 3px 6px 4px rgba(0, 0, 0, 0.1);
+  height: auto;
+  width: 300px;
+}
+
+.thumbnail {
+  border-radius: 15px 15px 0 0;
+  width: 100%;
+}
+
+.audio-button {
+  border: 2px solid black;
+  border-radius: 50px;
+  margin: 5px;
+  padding:12px;
+}
+
+
+/* Footer Styling */
+.footer {
+  align-items: flex-start;
+  display: flex;
+  justify-content: space-around;
+}

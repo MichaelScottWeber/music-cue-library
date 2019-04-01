@@ -1,0 +1,25 @@
+<% include ../partials/header %>
+
+<div class="container">
+  <div class="grid-container">
+
+    <% songs.forEach(function(song) { %>
+
+      <div class="card-container">
+        <img class="thumbnail" src="<%= song.image %>" alt="">
+        <div class="">
+          <h3 class=""><%= song.title %></h3>
+          <div class="">
+            <audio id="" class="audio" src="<%= song.audio %>"></audio>
+            <i id="" class="audio-button play-pause-text fas fa-play"></i>
+            <a type="button" href="/music/<%= song._id %>" class="">More Info</a>
+          </div>
+        </div>
+      </div>
+
+    <% }); %>
+
+  </div>
+</div>
+
+<% include ../partials/footer %>
