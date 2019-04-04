@@ -1,8 +1,12 @@
   <footer class="footer">
     <p>All contents &copy 2019 Michael Weber</p>
-    <p>
-      <a class="" href="/music/new">Add new music</a>
-    </p>
+    <% if (!currentUser) { %>
+      <p><a class="" href="/login">Login</a></p>
+    <% } else { %>
+      <p>Hello, <%= currentUser.username %></p>
+      <p><a class="" href="/music/new">Add new music</a></p>
+      <p><a class="" href="/logout">Logout</a></p>
+    <% } %>
   </footer>
 
   <script type="text/javascript" src="/scripts/main.js"></script>

@@ -1,10 +1,13 @@
-const express    = require("express"),
-      mongoose   = require("mongoose"),
-      bodyParser = require("body-parser"),
-      Song       = require("./models/song"),
-      Comment    = require("./models/comment"),
-      seedDB     = require("./seeds"),
-      app        = express();
+const express       = require("express"),
+      mongoose      = require("mongoose"),
+      bodyParser    = require("body-parser"),
+      passport      = require("passport"),
+      LocalStrategy = require("passport-local"),
+      Song          = require("./models/song"),
+      Comment       = require("./models/comment"),
+      User          = require("./models/user"),
+      seedDB        = require("./seeds"),
+      app           = express();
 
 // Connects to the local DB
 mongoose.connect("mongodb://localhost/music_library", { useNewUrlParser: true });
@@ -14,6 +17,25 @@ app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 
 seedDB();
+
+// PASSPORT CONFIGURATION
+app.use(require("express-session")({
+  secret: "Lucy always wins, forever",
+  resave: false,
+  saveUninitialized: false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+// Middleware to pass currentUser to all templates
+app.use(function(req, res, next) {
+  res.locals.currentUser = req.user;
+  next();
+});
+
 
 
 // Landing Page
@@ -28,13 +50,13 @@ app.get("/music", function(req, res) {
     if (err) {
       console.log(err);
     } else {
-      res.render("music/index", { songs: songs });
+      res.render("music/index", { songs: songs, currentUser: req.user });
     }
   });
 });
 
 // "CREATE" Route - Creates a new song
-app.post("/music", function(req, res) {
+app.post("/music", isLoggedIn, function(req, res) {
   // get data from form and add to songs array
   let title = req.body.title;
   let image = req.body.image;
@@ -61,7 +83,7 @@ app.post("/music", function(req, res) {
 });
 
 // "New" Route - displays a form for creating a new song
-app.get("/music/new", function(req, res) {
+app.get("/music/new", isLoggedIn, function(req, res) {
   res.render("music/new");
 });
 
@@ -118,6 +140,59 @@ app.post("/music/:id/comments", function(req, res) {
 
 
 });
+
+// =======================
+// ===== AUTH ROUTES =====
+// =======================
+
+// Show signup form
+app.get("/register", function(req, res) {
+  res.render("register");
+});
+
+// Handle signup logic
+app.post("/register", function(req, res) {
+  var newUser = new User({username: req.body.username});
+  User.register(newUser, req.body.password, function(err, user) {
+    if (err) {
+      console.log(err);
+      return res.render("register")
+    }
+    passport.authenticate("local")(req, res, function() {
+      res.redirect("/music");
+    });
+  });
+});
+
+// Show login form
+app.get("/login", function(req, res) {
+  res.render("login");
+});
+
+// Handle login logic
+app.post("/login", passport.authenticate("local", 
+  {
+    successRedirect: "/music",
+    failureRedirect: "/login"
+  }
+  ),function(req, res) {
+
+});
+
+// Logout Route
+app.get("/logout", function(req, res) {
+  req.logout();
+  res.redirect("/music");
+});
+
+// Middleware for checking if logged in
+function isLoggedIn(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next();
+  }
+  res.redirect("/login");
+}
+
 
 
 app.listen(3000, function() {
