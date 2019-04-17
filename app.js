@@ -1,16 +1,16 @@
-var express       = require("express"),
-    mongoose      = require("mongoose"),
-    bodyParser    = require("body-parser"),
-    passport      = require("passport"),
-    LocalStrategy = require("passport-local"),
-    Song          = require("./models/song"),
-    Comment       = require("./models/comment"),
-    User          = require("./models/user"),
-    seedDB        = require("./seeds"),
-    app           = express();
+var express        = require("express"),
+    mongoose       = require("mongoose"),
+    bodyParser     = require("body-parser"),
+    flash          = require("connect-flash"),
+    passport       = require("passport"),
+    LocalStrategy  = require("passport-local"),
+    methodOverride = require("method-override"),
+    User           = require("./models/user"),
+    seedDB         = require("./seeds");
+
+var app = express();
 
 // Requiring routes
-var commentRoutes = require("./routes/comments"),
     musicRoutes   = require("./routes/music"),
     indexRoutes   = require("./routes/index");
 
@@ -20,6 +20,8 @@ mongoose.connect("mongodb://localhost/music_library", { useNewUrlParser: true })
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
+app.use(methodOverride("_method"));
+app.use(flash());
 
 seedDB();
 
@@ -38,12 +40,13 @@ passport.deserializeUser(User.deserializeUser());
 // Middleware to pass currentUser to all templates
 app.use(function(req, res, next) {
   res.locals.currentUser = req.user;
+  res.locals.error = req.flash("error");
+  res.locals.success = req.flash("success");
   next();
 });
 
 app.use("/", indexRoutes);
 app.use("/music", musicRoutes);
-app.use("/music/:id/comments", commentRoutes);
 
 app.listen(3000, function() {
   console.log("Server has started: localhost:3000")

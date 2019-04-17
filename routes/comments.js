@@ -39,6 +39,9 @@ router.post("/", function(req, res) {
         }
     });
 });
+
+// Edit Comment Page
+
   
 // Middleware for checking if logged in
 function isLoggedIn(req, res, next) {

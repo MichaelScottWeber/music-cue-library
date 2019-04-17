@@ -1,25 +1,30 @@
 <% include ../partials/header %>
 
+<img class="logo" src="images/michaelwebermusic4.png">
+
 <div class="container">
-  <div class="grid-container">
+  <section class="index-container">
 
     <% songs.forEach(function(song) { %>
 
       <div class="card-container">
-        <img class="thumbnail" src="<%= song.image %>" alt="">
-        <div class="">
-          <h3 class=""><%= song.title %></h3>
-          <div class="">
-            <audio id="" class="audio" src="<%= song.audio %>"></audio>
-            <i id="" class="audio-button play-pause-text fas fa-play"></i>
-            <a type="button" href="/music/<%= song._id %>" class="">More Info</a>
-          </div>
+        <img class="card-img" src="<%= song.image %>" alt="">
+        <a href="/music/<%= song._id %>""><h3 class="card-title"><%= song.title %></h3></a>
+        <audio id="" class="audio" src="<%= song.audio %>"></audio>
+        <div class="card-buttons">
+          <i id="" class="audio-button play-pause-text fas fa-play"></i>
+          <a href="/music/<%= song._id %>" class="info-button">More Info</a>
         </div>
       </div>
 
     <% }); %>
-
-  </div>
+  </section>
 </div>
+<section class="about-section">
+  <div class="about-text-group">
+    <h2 class="about-title">Original music for visual media</h2>
+    <p class="about-text">Michael Weber is an award winning composer, producer and performer from the Chicago, Illinois area. His music has been used all over the world by such companies as Fox Sports, CBS, A&E, State Farm and others.</p>
+  </div>
+</section>
 
 <% include ../partials/footer %>

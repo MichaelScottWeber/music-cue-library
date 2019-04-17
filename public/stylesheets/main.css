@@ -1,90 +1,344 @@
-html, body {
-  height: 100%;
+/* =================== */
+/* === Basic Reset === */
+/* =================== */
+
+html {
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
 }
 
-/* Navbar Styling */
-/* .navbar {
-  align-items: flex-end;
-  box-shadow: 0 3px 7px 3px rgba(0, 0, 0, 0.1);
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+  color: #031434;
+  transition: color .2s;
+}
+
+a:hover, a:active {
+  color: #688ED2;
+}
+
+body {
+  background-color: #F6F7F7;
+}
+
+/* ==================== */
+/* === Landing Page === */
+/* ==================== */
+
+.landing-bg {
+  background: url(../images/Landing-Background.jpg) no-repeat center center fixed;
+  background-size: cover;
+  height: 100vh;
+  text-align: right;
+  padding: 18vh 10vw;
+}
+
+.landing-title {
+  font-size: 5vw;
+  color: #F6F7F7;
+  line-height: 1.4em;
+  margin-bottom: 1.5em;
+}
+
+.landing-btn {
+  font-size: 1.2vw;
+  color: #F6F7F7;
+  background-color: #E1B32B;
+  padding: 1em;
+  border-radius: 5px;
+  transition: background-color .3s;
+}
+
+@media only screen and (max-width: 1350px) {
+  .landing-btn {
+    font-size: 1em;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .landing-title {
+    font-size: 2.5em;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .landing-title {
+    font-size: 1.5em;
+  }
+
+  .landing-btn {
+    font-size: 0.8em;
+  }
+}
+
+.landing-btn:hover, .landing-btn:active {
+  background-color: #688ED2;
+  color: #F6F7F7;
+}
+
+/* ================= */
+/* === Site-Wide === */
+/* ================= */
+
+.site-container {
+  display: grid;
+  grid-template-rows: 53px auto 50px;
+  height: 100vh;
+}
+
+.navbar {
   display: flex;
-  height: 50px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.logo-text, .social-links {
+  margin: 0 10px;
+}
+
+.social-links, .auth-links {
+  display: flex;
   justify-content: space-between;
 }
 
-.logo, .nav-link {
-  color: darkgray;
-  padding: 10px 20px;
-  text-decoration: none;
+.social-links {
+  font-size: 1.3em;
 }
 
-.toggle {
-  color: darkgray;
-  cursor: pointer;
-  display: none;
-  padding: 10px 20px;
+li a {
+  margin: .5em;
 }
 
-.nav-menu {
-  display: none;
-  padding-bottom: 10px;
-}
-
-.active {
-  display: block;
-} */
-
-/* Landing Page Styling */
-.landing-image {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto auto auto;
-}
-
-.landing-button {
-  display: block;
-  margin: 0 auto auto 10%;
-  position: relative;;
-}
-
-/* General Styling */
 .container {
-  margin: 20px;
+  background-color: #EBF0F0;
+  margin: 50px;
+  padding: 20px
+}
+
+.error {
+  text-align: center;
+  background-color: #F3DEDC;
+  color: #6D120A;
   padding: 10px;
 }
 
-.grid-container {
-  display: grid;
-  grid-gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 300px));
-  justify-content: center;
+.success {
+  text-align: center;
+  background-color: #D8F1DE;
+  color: #084515;
+  padding: 10px;
 }
 
+.form {
+  text-align: center;
+}
 
-/* Card Styling */
+.form-item {
+  margin: 10px;
+}
+
+/* ================== */
+/* === Index Page === */
+/* ================== */
+
+.logo {
+  display: block;
+  width: 400px;
+  margin: 30px auto;
+}
+
+.index-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.about-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #031434;
+  height: 300px;
+}
+
+.about-text-group {
+  width: 500px;
+  line-height: 1.6em;
+  text-align: center;
+}
+
+.about-title {
+  line-height: 3em;
+  color: #F6F7F7;
+}
+
+.about-text {
+  color: #F6F7F7;
+  opacity: .6;
+}
+
+/* ================= */
+/* === Song Card === */
+/* ================= */
+
 .card-container {
-  border-radius: 15px;
-  box-shadow: 1px 3px 6px 4px rgba(0, 0, 0, 0.1);
-  height: auto;
+  height: 350px;
+  width: 300px;
+  border: 1px solid #264A8D;
+  border-radius: 5px;
+  margin: 20px;
+  background-color: #F6F7F7;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-img {
   width: 300px;
 }
 
-.thumbnail {
-  border-radius: 15px 15px 0 0;
-  width: 100%;
+.card-title {
+  margin: 10px;
+  color: #031434;
+}
+
+.card-buttons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
 .audio-button {
-  border: 2px solid black;
+  border: 3px solid #4D75BF;
   border-radius: 50px;
-  margin: 5px;
-  padding:12px;
+  color: #4D75BF;
+  font-size: 1.4em;
+  padding: 0.8em;
+  transition: 0.2s;
+  margin: 0 10px;
 }
 
+.audio-button:hover, .audio-button:active {
+  background-color: #4D75BF;
+  color: #F6F7F7;
+  cursor: pointer;
+}
 
-/* Footer Styling */
-.footer {
-  align-items: flex-start;
+.info-button {
+  background-color: #F4F8FF;
+  border: 3px solid #4D75BF;
+  border-radius: 5px;
+  color: #264A8D;
+  padding: 0.5em;
+  transition: 0.2s;
+  margin: 0 10px;
+}
+
+.info-button:hover, .info-button:active {
+  background-color: #4D75BF;
+  color: #F4F8FF;
+}
+
+/* ================= */
+/* === Show Page === */
+/* ================= */
+
+.waveform-container {
+  background: linear-gradient(to right, #031434, #322500);
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  padding: 20px 0;
+  margin-bottom: 20px;
+}
+
+.song-title {
+  color: #F6F7F7;
+  font-size: 2.5em;
+}
+
+#waveform {
+  width: 100%;
+  margin: 20px 0;
+}
+
+.show-buttons .audio-button {
+  color: #F6F7F7;
+  border: 3px solid #F6F7F7;
+}
+
+.time {
+  border: 1px solid #F6F7F7;
+  color: #F6F7F7;
+  opacity: .6;
+  height: 2em;
+  width: 3em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 10px;
+}
+
+.show-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.text-box-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px 20px;
+}
+
+@media only screen and (max-width: 600px) {
+  .text-box-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.show-text-box {
+  background-color: #293E3F;
+  color: #F6F7F7;
+  padding: 20px;
+  
+}
+
+.show-text-box h2 {
+  display: inline;
+  font-size: 1.2em;
+}
+
+.show-text-box p {
+  display: inline;
+  opacity: .6;
 }
