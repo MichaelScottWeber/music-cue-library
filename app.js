@@ -17,14 +17,7 @@ var app = express();
 // // Connects to the local DB
 // mongoose.connect("mongodb://localhost/music_library", { useNewUrlParser: true });
 
-const MongoClient = require('mongodb').MongoClient;
-const uri = "mongodb+srv://mscottweber:Lucywins1@cluster0-cpjdu.mongodb.net/test?retryWrites=true";
-const client = new MongoClient(uri, { useNewUrlParser: true });
-client.connect(err => {
-  const collection = client.db("test").collection("devices");
-  // perform actions on the collection object
-  client.close();
-});
+mongoose.connect("mongodb+srv://mscottweber:Lucywins1@cluster0-cpjdu.mongodb.net/test?retryWrites=true", { useNewUrlParser: true });
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -63,4 +56,6 @@ app.use("/music", musicRoutes);
 //   console.log("Server has started: localhost:3000")
 // });
 
-app.listen(process.env.PORT, process.env.IP);
+app.listen(process.env.PORT, process.env.IP, function() {
+  console.log("Here goes your app!");
+});
