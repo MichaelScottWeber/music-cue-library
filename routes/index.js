@@ -15,12 +15,11 @@ router.get("/register", function(req, res) {
   });
   
 // Signup Post Route - handles signup logic
-router.post("/register", function(req, res) {
+router.post("/registerr", function(req, res) {
     var newUser = new User({username: req.body.username});
     User.register(newUser, req.body.password, function(err, user) {
         if (err) {
-            console.log(err);
-            req.flash("error", "Something went wrong");
+            req.flash("error", err);
             return res.render("register")
         }
         passport.authenticate("local")(req, res, function() {
@@ -39,7 +38,9 @@ router.get("/login", function(req, res) {
 router.post("/login", passport.authenticate("local", 
 {
     successRedirect: "/music",
-    failureRedirect: "/login"
+    successFlash: "Succesfully logged in!",
+    failureRedirect: "/login",
+    failureFlash: "Something went wrong. Check your username and password and try again."
 }
 ), function(req, res) {
     req.flash("success", "Succesfully logged in");
