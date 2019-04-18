@@ -14,8 +14,10 @@ var app = express();
     musicRoutes   = require("./routes/music"),
     indexRoutes   = require("./routes/index");
 
-// Connects to the local DB
-mongoose.connect("mongodb://localhost/music_library", { useNewUrlParser: true });
+// // Connects to the local DB
+// mongoose.connect("mongodb://localhost/music_library", { useNewUrlParser: true });
+
+mongoose.connect("mongodb+srv://mscottweber:Jesusis#1@cluster0-cpjdu.mongodb.net/test?retryWrites=true", { useNewUrlParser: true });
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
