@@ -3,9 +3,9 @@
 // ===INDEX PAGE PLAY BUTTON===
 // ============================
 
-let audio = document.getElementsByClassName("audio");
-let playPauseButton = document.getElementsByClassName("audio-button");
-let playPauseText = document.getElementsByClassName("play-pause-text");
+var audio = document.getElementsByClassName("audio");
+var playPauseButton = document.getElementsByClassName("audio-button");
+var playPauseText = document.getElementsByClassName("play-pause-text");
 
 // Toggles between Play/Pause buttons
 function playButtonSwap(song) {
@@ -29,13 +29,13 @@ function stopCurrentSong(song) {
 }
 
 
-for(let i = 0; i < audio.length; i++) {
+for(var i = 0; i < audio.length; i++) {
   // Stops all currently playing songs, then plays/pauses the clicked song
   function playPause() {
     if (!audio[i].paused) {
       pauseSong(i);
     } else if (audio[i].paused) {
-      for (let n = 0; n < audio.length; n++) {
+      for (var n = 0; n < audio.length; n++) {
         stopCurrentSong(n);
       }
       audio[i].play();
@@ -57,7 +57,7 @@ for(let i = 0; i < audio.length; i++) {
 // ===WAVESURFER FOR SHOW PAGE===
 // ==============================
 
-let playButton     = document.getElementById("play-button"),
+var playButton     = document.getElementById("play-button"),
     pauseButton    = document.getElementById("pause-button"),
     stopButton     = document.getElementById("stop-button"),
     backwardButton = document.getElementById("backward-button"),
@@ -65,7 +65,7 @@ let playButton     = document.getElementById("play-button"),
     currentTime    = document.getElementById("current-time"),
     duration       = document.getElementById("duration");
 
-let wavesurfer = WaveSurfer.create({
+var wavesurfer = WaveSurfer.create({
     container: "#waveform",
     barHeight: 1.7,
     barGap: 3,
@@ -113,9 +113,9 @@ forwardButton.addEventListener("click", function() {
 
 // Converts seconds into minutes:seconds
 function convertSeconds(sec) {
-  let totalSeconds = Math.round(sec);
-  let minutes = Math.floor(totalSeconds / 60);
-  let seconds = totalSeconds % 60;
+  var totalSeconds = Math.round(sec);
+  var minutes = Math.floor(totalSeconds / 60);
+  var seconds = totalSeconds % 60;
   if (seconds < 10) {
     return minutes + ":0" + seconds;
   } else {
