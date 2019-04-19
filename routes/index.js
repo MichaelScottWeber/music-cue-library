@@ -10,7 +10,7 @@ router.get("/", function(req, res) {
 });
   
 // Singup Form Page - keep this hidden from view!
-router.get("/register", function(req, res) {
+router.get("/registerr", function(req, res) {
     res.render("register");
   });
   
