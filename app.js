@@ -51,11 +51,11 @@ app.use(function(req, res, next) {
 app.use("/", indexRoutes);
 app.use("/music", musicRoutes);
 
-// For local hosting
-app.listen(3000, function() {
-  console.log("Server has started: localhost:3000")
-});
-
-// app.listen(process.env.PORT, process.env.IP, function() {
-//   console.log("Here goes your app!");
+// // For local hosting
+// app.listen(3000, function() {
+//   console.log("Server has started: localhost:3000")
 // });
+
+app.listen(process.env.PORT, process.env.IP, function() {
+  console.log("Here goes your app!");
+});
