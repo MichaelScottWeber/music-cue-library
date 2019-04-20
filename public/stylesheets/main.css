@@ -4,7 +4,10 @@
 
 html {
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  /* font-family: 'Quicksand', sans-serif; */
+  font-family: 'Nobile', sans-serif;
+  /* font-family: 'Poiret One', cursive; */ /* Good for header/footer, and logo maybe */
+  /* font-family: 'Montserrat', sans-serif; */
   font-size: 16px;
 }
 
@@ -110,12 +113,23 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-family: 'Poiret One', sans-serif;
+  /* background-color: #EBF0F0; */
+}
+
+/* .fab:hover, .fab:active, .logo-text:hover, .logo-text:active {
+  border-right: 2px solid #688ED2; */
 }
 
 .footer {
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+
+.logo-text {
+  font-size: 1.3em;
+  font-family: 'Quicksand', sans-serif;
 }
 
 .logo-text, .social-links {
@@ -125,6 +139,7 @@ body {
 .social-links, .auth-links {
   display: flex;
   justify-content: space-between;
+
 }
 
 .social-links {
@@ -161,6 +176,10 @@ li a {
 
 .form-item {
   margin: 10px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
 }
 
 /* ================== */
@@ -210,7 +229,8 @@ li a {
 .card-container {
   height: 350px;
   width: 300px;
-  border: 1px solid #264A8D;
+  /* border: 1px solid #264A8D; */
+  box-shadow: -5px 5px 4px -6px rgba(0, 0, 0, 0.36); 
   border-radius: 5px;
   margin: 20px;
   background-color: #F6F7F7;
@@ -330,6 +350,7 @@ li a {
   background-color: #293E3F;
   color: #F6F7F7;
   padding: 20px;
+  line-height: 1.5em;
   
 }
 
