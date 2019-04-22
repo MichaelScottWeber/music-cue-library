@@ -9,7 +9,11 @@ testAudioBtn.addEventListener("click", function() {
 });
 
 if (testAudio.paused) {
-  console.log("paused is working");
+  console.log("paused");
+};
+
+if (!testAudio.paused) {
+  console.log("not paused");
 };
 
 
