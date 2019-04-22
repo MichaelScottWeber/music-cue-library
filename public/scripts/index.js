@@ -1,20 +1,20 @@
 
-// -------------Testing-------------
+// // -------------Testing-------------
 
-var testAudio = document.querySelector(".test-audio");
-var testAudioBtn = document.querySelector(".test-audio-btn");
+// var testAudio = document.querySelector(".test-audio");
+// var testAudioBtn = document.querySelector(".test-audio-btn");
 
-testAudioBtn.addEventListener("click", function() {
-  testAudio.play();
-});
+// testAudioBtn.addEventListener("click", function() {
+//   testAudio.play();
+// });
 
-if (testAudio.paused) {
-  console.log("paused");
-};
+// if (testAudio.paused) {
+//   console.log("paused");
+// };
 
-if (testAudio.paused === false) {
-  console.log("not paused");
-};
+// if (testAudio.paused === false) {
+//   console.log("not paused");
+// };
 
 
 // ============================
