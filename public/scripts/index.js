@@ -8,6 +8,10 @@ testAudioBtn.addEventListener("click", function() {
   testAudio.play();
 });
 
+if (testAudio.paused) {
+  console.log("paused is working");
+};
+
 
 // ============================
 // ===INDEX PAGE PLAY BUTTON===
