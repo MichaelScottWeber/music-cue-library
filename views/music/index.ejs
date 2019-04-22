@@ -10,7 +10,7 @@
       <div class="card-container">
         <img class="card-img" src="<%= song.image %>" alt="">
         <a href="/music/<%= song._id %>""><h3 class="card-title"><%= song.title %></h3></a>
-        <audio id="" class="audio" src="<%= song.audio %>"></audio>
+        <audio controls id="" class="audio" src="<%= song.audio %>"></audio>
         <div class="card-buttons">
           <i id="" class="audio-button play-pause-text fas fa-play"></i>
           <a href="/music/<%= song._id %>" class="info-button">More Info</a>
