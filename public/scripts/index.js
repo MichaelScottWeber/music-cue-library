@@ -39,14 +39,14 @@ function stopCurrentSong(song) {
 }
 
 
-for(let i = 0; i < audio.length; i++) {
+for(var i = 0; i < audio.length; i++) {
   audio[i].load();
   // Stops all currently playing songs, then plays/pauses the clicked song
   function playPause() {
     if (!audio[i].paused) {
       pauseSong(i);
     } else if (audio[i].paused) {
-      for (let n = 0; n < audio.length; n++) {
+      for (var n = 0; n < audio.length; n++) {
         stopCurrentSong(n);
       }
       audio[i].play();
