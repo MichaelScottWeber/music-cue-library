@@ -21,9 +21,9 @@
 // ===INDEX PAGE PLAY BUTTON===
 // ============================
 
-var audio = document.getElementsByClassName("audio");
-var playPauseButton = document.getElementsByClassName("audio-button");
-var playPauseText = document.getElementsByClassName("play-pause-text");
+var audio = Array.from(document.getElementsByClassName("audio"));
+var playPauseButton = Array.from(document.getElementsByClassName("audio-button"));
+var playPauseText = Array.from(document.getElementsByClassName("play-pause-text"));
 
 // Toggles between Play/Pause buttons
 function playButtonSwap(song) {
