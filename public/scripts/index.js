@@ -12,7 +12,7 @@ if (testAudio.paused) {
   console.log("paused");
 };
 
-if (!testAudio.paused) {
+if (!(testAudio.paused)) {
   console.log("not paused");
 };
 
