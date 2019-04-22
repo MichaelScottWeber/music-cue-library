@@ -25,6 +25,7 @@ var wavesurfer = WaveSurfer.create({
 });
 
 wavesurfer.load(songAudio);
+songAudio.load();
 
 // Sets song duration
 wavesurfer.on("ready", function() {
