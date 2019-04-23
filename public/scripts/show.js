@@ -10,6 +10,10 @@ var playButton     = document.getElementById("play-button"),
     currentTime    = document.getElementById("current-time"),
     duration       = document.getElementById("duration");
 
+var audioString = songAudio;
+console.log(songAudio);
+console.log(audioString);
+
 var wavesurfer = WaveSurfer.create({
     container: "#waveform",
     barHeight: 1.7,
@@ -24,7 +28,7 @@ var wavesurfer = WaveSurfer.create({
     waveColor: "#E7D59F",
 });
 
-wavesurfer.load(songAudio);
+wavesurfer.load(audioString);
 
 // Sets song duration
 wavesurfer.on("ready", function() {
