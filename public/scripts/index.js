@@ -1,29 +1,12 @@
 
-// // -------------Testing-------------
-
-// var testAudio = document.querySelector(".test-audio");
-// var testAudioBtn = document.querySelector(".test-audio-btn");
-
-// testAudioBtn.addEventListener("click", function() {
-//   testAudio.play();
-// });
-
-// if (testAudio.paused) {
-//   console.log("paused");
-// };
-
-// if (testAudio.paused === false) {
-//   console.log("not paused");
-// };
-
-
 // ============================
 // ===INDEX PAGE PLAY BUTTON===
 // ============================
 
-var audio = Array.from(document.getElementsByClassName("audio"));
-var playPauseButton = Array.from(document.getElementsByClassName("audio-button"));
-var playPauseText = Array.from(document.getElementsByClassName("play-pause-text"));
+// Variables
+let audio = document.getElementsByClassName("audio"),
+    playPauseButton = document.getElementsByClassName("audio-button"),
+    playPauseText = document.getElementsByClassName("play-pause-text");
 
 // Toggles between Play/Pause buttons
 function playButtonSwap(song) {
@@ -37,7 +20,13 @@ function pauseSong(song) {
   playButtonSwap(song);
 }
 
-// Stops the song is it is playing
+// Plays the song
+function playSong(song) {
+  audio[song].play();
+  playButtonSwap(song);
+}
+
+// Stops the song if it is playing
 function stopCurrentSong(song) {
   if (!audio[song].paused) {
     audio[song].pause();
@@ -46,29 +35,20 @@ function stopCurrentSong(song) {
   }
 }
 
-
-for(var i = 0; i < audio.length; i++) {
-  audio[i].load();
-  // Stops all currently playing songs, then plays/pauses the clicked song
-  function playPause() {
+// Event Listeners
+for(let i = 0; i < playPauseButton.length; i++) {
+  playPauseButton[i].addEventListener("click", function() {
     if (!audio[i].paused) {
       pauseSong(i);
     } else if (audio[i].paused) {
-      for (var n = 0; n < audio.length; n++) {
+      for(let n = 0; n < playPauseButton.length; n++) {
         stopCurrentSong(n);
       }
-      audio[i].play();
-      playButtonSwap(i);
+      playSong(i);
     }
-  };
-
-  // Resets the audio and button after song ends
-  function songEnd() {
+  });
+  audio[i].addEventListener("ended", function() {
     audio[i].currentTime = 0;
     playButtonSwap(i);
-  }
-
-  playPauseButton[i].addEventListener("click", playPause);
-  audio[i].addEventListener("ended", songEnd);
+  })
 }
-
