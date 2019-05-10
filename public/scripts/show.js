@@ -11,8 +11,8 @@ var playButton     = document.getElementById("play-button"),
     duration       = document.getElementById("duration");
 
 var audioString = songAudio;
-console.log(songAudio);
-console.log(audioString);
+// console.log(songAudio);
+// console.log(audioString);
 
 var wavesurfer = WaveSurfer.create({
     container: "#waveform",
