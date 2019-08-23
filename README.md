@@ -1,2 +1,2 @@
 # music-cue-library
-A searchable library of my original music cues
+A library of my original music cues
